@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>CardioRegistro V3.0.3</title>
+  <meta name="description" content="Registro domiciliario de presión arterial">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div>
+      <h1>CardioRegistro <span>V3.0</span></h1>
+      <p class="subtitle">Registro domiciliario de presión arterial</p>
+      <p class="credit">Desarrollado por José María Condomí Alcorta y Data (ChatGPT)</p>
+    </div>
+    <div class="medical-note">
+      Esta aplicación organiza información para facilitar el seguimiento de su cardiólogo.
+      <strong>No modifique su medicación sin indicación del profesional tratante.</strong>
+    </div>
+  </header>
+
+  <nav class="workflow no-print">
+    <a href="#paciente">1. Paciente</a><a href="#mediciones">2. Nueva medición</a>
+    <a href="#medicacion">3. Medicación</a><a href="#estadisticas">4. Estadísticas</a>
+    <a href="#informe">5. Informe</a>
+  </nav>
+
+  <section class="toolbar no-print">
+    <div>
+      <label>Paciente activo</label>
+      <div id="patientSwitch" class="patient-switch"></div>
+    </div>
+    <button id="backupBtn">Guardar respaldo</button>
+    <button id="restoreBtn">Recuperar respaldo</button>
+    <button id="diagnosticBtn">Informe técnico</button>
+    <button id="printBtn" class="primary">Guardar e imprimir/PDF</button>
+    <input id="restoreFile" type="file" accept=".json,application/json" hidden>
+  </section>
+
+  <main>
+    <section id="paciente" class="card">
+      <h2>Paciente</h2>
+      <div class="grid two">
+        <div><label for="patientName">Nombre</label><input id="patientName" maxlength="60"></div>
+        <div><label for="patientNote">Observación general</label><input id="patientNote" maxlength="120" placeholder="Opcional"></div>
+      </div>
+      <p class="hint no-print">Los datos se guardan automáticamente en este navegador.</p>
+    </section>
+
+    <section id="mediciones" class="card">
+      <h2>Nueva medición</h2><p class="muted">Formulario principal de carga rápida.</p>
+      <form id="readingForm" class="no-print">
+        <input id="readingId" type="hidden">
+        <div class="grid four">
+          <div><label for="readingDate">Fecha de la toma</label><input id="readingDate" type="date" required></div>
+          <div><label for="readingTime">Hora</label><input id="readingTime" type="time" required></div>
+          <div><label for="sys">Sistólica (alta)</label><input id="sys" type="number" min="60" max="260" required></div>
+          <div><label for="dia">Diastólica (baja)</label><input id="dia" type="number" min="35" max="160" required></div>
+        </div>
+        <div class="grid three second-row">
+          <div><label for="pulse">Frecuencia cardíaca</label><input id="pulse" type="number" min="30" max="220" required></div>
+          <div><label for="medRelation">Relación con la medicación</label>
+            <select id="medRelation"><option value="">Sin especificar</option><option>Antes de la medicación</option><option>Después de la medicación</option><option>Sin relación inmediata</option></select>
+          </div>
+          <div><label for="readingNotes">Observaciones</label><input id="readingNotes" maxlength="100"></div>
+        </div>
+        <div class="actions"><button class="primary" type="submit">Guardar medición</button><button type="button" id="cancelReading">Cancelar edición</button></div>
+        <p class="hint">Se conservan hasta 30 mediciones por paciente. La número 31 reemplaza automáticamente a la más antigua.</p>
+      </form>
+    </section>
+
+    <section id="medicacion" class="card">
+      <h2>Medicación habitual</h2>
+      <form id="medForm" class="no-print">
+        <input id="medId" type="hidden">
+        <div class="grid four">
+          <div><label for="medName">Medicamento</label><input id="medName" required maxlength="60"></div>
+          <div><label for="medDose">Dosis</label><input id="medDose" required maxlength="40"></div>
+          <div><label for="medTimes">Horario(s)</label><input id="medTimes" required maxlength="60"></div>
+          <div><label for="medNotes">Observaciones</label><input id="medNotes" maxlength="80"></div>
+        </div>
+        <div class="actions"><button class="primary" type="submit">Guardar medicamento</button><button type="button" id="cancelMed">Cancelar edición</button></div>
+      </form>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medicamento</th><th>Dosis</th><th>Horario(s)</th><th>Observaciones</th><th class="no-print">Acciones</th></tr></thead>
+        <tbody id="medRows"></tbody>
+      </table></div>
+    </section>
+
+    <section id="estadisticas" class="card">
+      <div class="section-head">
+        <div><h2>Estadísticas</h2><p id="periodLabel" class="muted"></p></div>
+        <div class="no-print"><label for="rangeSelect">Período</label>
+          <select id="rangeSelect"><option value="all" selected>Todos los registros</option><option value="30">Últimos 30 días</option><option value="183">Últimos 6 meses</option><option value="365">Último año</option></select><p class="hint">“Total almacenado” muestra todos los registros recuperados. “En el período” depende del filtro elegido.</p>
+        </div>
+      </div>
+      <div id="stats" class="stats"></div>
+    </section>
+
+    <section class="card">
+      <h2>Evolución</h2>
+      <p class="muted">Líneas continuas: valores diarios. Líneas discontinuas: promedio móvil de 7 días.</p>
+      <div class="chart-legend" aria-label="Referencias del gráfico">
+        <span><i style="background:#c62828"></i> Presión sistólica</span>
+        <span><i style="background:#2457c5"></i> Presión diastólica</span>
+        <span><i style="background:#067647"></i> Frecuencia cardíaca</span>
+      </div>
+      <canvas id="chart" width="1000" height="360"></canvas>
+    </section>
+
+    <section id="informe" class="card">
+      <h2>Registro de mediciones</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Fecha</th><th>Hora</th><th>Sistólica</th><th>Diastólica</th><th>Pulso</th><th>Medicación</th><th>Observaciones</th><th class="no-print">Acciones</th></tr></thead>
+        <tbody id="readingRows"></tbody>
+      </table></div>
+    </section>
+  </main>
+
+  <footer>© 2026 José María Condomí Alcorta. Todos los derechos reservados.<br>CardioRegistro V3.0.3 — Desarrollado por José María Condomí Alcorta y Data (ChatGPT).</footer>
+</div>
+<div id="toast" role="status"></div>
+<script src="datos/respaldo-inicial.js"></script>
+<script src="js/utilidades.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/graficos.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

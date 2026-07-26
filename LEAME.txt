@@ -1,0 +1,9 @@
+CARDIOREGISTRO V3.0
+
+1. Descomprima la carpeta completa.
+2. Abra index.html.
+3. No separe index.html de las carpetas css, js y datos.
+4. La aplicación incorpora el respaldo histórico entregado.
+5. Use “Guardar respaldo” periódicamente.
+
+También se entrega una versión independiente de un solo archivo para uso directo.
