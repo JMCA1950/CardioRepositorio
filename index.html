@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>CardioRegistro V3.0.3</title>
+  <title>CardioRegistro V3.3 Estable</title>
   <meta name="description" content="Registro domiciliario de presión arterial">
   <link rel="stylesheet" href="css/estilos.css">
 </head>
@@ -11,7 +11,7 @@
 <div class="app">
   <header class="hero">
     <div>
-      <h1>CardioRegistro <span>V3.0</span></h1>
+      <h1>CardioRegistro <span>V3.3 Estable</span></h1>
       <p class="subtitle">Registro domiciliario de presión arterial</p>
       <p class="credit">Desarrollado por José María Condomí Alcorta y Data (ChatGPT)</p>
     </div>
@@ -22,57 +22,92 @@
   </header>
 
   <nav class="workflow no-print">
-    <a href="#paciente">1. Paciente</a><a href="#mediciones">2. Nueva medición</a>
+    <a href="#paciente">1. Paciente</a><a href="#mediciones">2. Medición</a>
     <a href="#medicacion">3. Medicación</a><a href="#estadisticas">4. Estadísticas</a>
-    <a href="#informe">5. Informe</a>
+    <a href="#informe">5. Listado</a><a href="#acerca">6. Acerca de</a>
   </nav>
 
   <section class="toolbar no-print">
-    <div>
+    <div class="toolbar-group toolbar-patient">
       <label>Paciente activo</label>
       <div id="patientSwitch" class="patient-switch"></div>
     </div>
-    <button id="backupBtn">Guardar respaldo</button>
-    <button id="restoreBtn">Recuperar respaldo</button>
-    <button id="diagnosticBtn">Informe técnico</button>
-    <button id="printBtn" class="primary">Guardar e imprimir/PDF</button>
+
+    <div class="toolbar-separator" aria-hidden="true"></div>
+
+    <div class="toolbar-group toolbar-main-actions">
+      <div class="toolbar-main-row toolbar-main-row-top">
+        <div class="toolbar-action-item toolbar-action-print">
+          <button id="printBtn" class="positive-action">Guardar e imprimir/PDF</button>
+          <button class="context-help no-print" type="button" data-help-topic="print" aria-label="Ayuda sobre guardar e imprimir o PDF" title="Ayuda sobre guardar e imprimir o PDF">?</button>
+        </div>
+      </div>
+      <div class="toolbar-main-row toolbar-main-row-bottom">
+        <div class="toolbar-action-item">
+          <button id="backupBtn" class="positive-action">Guardar respaldo</button>
+          <button class="context-help no-print" type="button" data-help-topic="backup" aria-label="Ayuda sobre guardar respaldo" title="Ayuda sobre guardar respaldo">?</button>
+        </div>
+        <div class="toolbar-action-item">
+          <button id="restoreBtn" class="positive-action">Recuperar respaldo</button>
+          <button class="context-help no-print" type="button" data-help-topic="restore" aria-label="Ayuda sobre recuperar respaldo" title="Ayuda sobre recuperar respaldo">?</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toolbar-separator" aria-hidden="true"></div>
+
+    <div class="toolbar-group toolbar-info-actions">
+      <button id="helpBtn" type="button">Ayuda</button>
+      <button id="diagnosticBtn">Informe técnico</button>
+    </div>
+
+    <div class="toolbar-separator" aria-hidden="true"></div>
+
+    <div class="toolbar-group toolbar-reset-group">
+      <button id="resetAppBtn" class="danger">Reiniciar aplicación</button>
+    </div>
+
     <input id="restoreFile" type="file" accept=".json,application/json" hidden>
   </section>
 
   <main>
     <section id="paciente" class="card">
-      <h2>Paciente</h2>
+      <h2>Paciente <span class="patient-context" data-patient-context></span> <button class="context-help no-print" type="button" data-help-topic="patient" aria-label="Ayuda sobre pacientes" title="Ayuda sobre pacientes">?</button></h2>
       <div class="grid two">
-        <div><label for="patientName">Nombre</label><input id="patientName" maxlength="60"></div>
+        <div><label for="patientName">Nombre</label><input id="patientName" class="patient-name-input" maxlength="60"></div>
         <div><label for="patientNote">Observación general</label><input id="patientNote" maxlength="120" placeholder="Opcional"></div>
       </div>
+      <div class="patient-management no-print"><button id="addPatientBtn" type="button">Agregar paciente</button><button id="removePatientBtn" type="button" class="danger">Eliminar paciente</button></div>
       <p class="hint no-print">Los datos se guardan automáticamente en este navegador.</p>
     </section>
 
     <section id="mediciones" class="card">
-      <h2>Nueva medición</h2><p class="muted">Formulario principal de carga rápida.</p>
+      <h2>Nueva medición <span class="patient-context" data-patient-context></span> <button class="context-help no-print" type="button" data-help-topic="reading" aria-label="Ayuda sobre nueva medición" title="Ayuda sobre nueva medición">?</button></h2>
       <form id="readingForm" class="no-print">
         <input id="readingId" type="hidden">
-        <div class="grid four">
-          <div><label for="readingDate">Fecha de la toma</label><input id="readingDate" type="date" required></div>
+        <div class="grid three">
+          <div><label for="readingPatient">Paciente</label><select id="readingPatient" required></select></div>
+          <div><label for="readingDate">Fecha de la medición</label><input id="readingDate" type="date" required></div>
           <div><label for="readingTime">Hora</label><input id="readingTime" type="time" required></div>
-          <div><label for="sys">Sistólica (alta)</label><input id="sys" type="number" min="60" max="260" required></div>
-          <div><label for="dia">Diastólica (baja)</label><input id="dia" type="number" min="35" max="160" required></div>
         </div>
         <div class="grid three second-row">
+          <div><label for="sys">Sistólica (alta)</label><input id="sys" type="number" min="60" max="260" required></div>
+          <div><label for="dia">Diastólica (baja)</label><input id="dia" type="number" min="35" max="160" required></div>
           <div><label for="pulse">Frecuencia cardíaca</label><input id="pulse" type="number" min="30" max="220" required></div>
+        </div>
+        <div class="grid two second-row">
           <div><label for="medRelation">Relación con la medicación</label>
             <select id="medRelation"><option value="">Sin especificar</option><option>Antes de la medicación</option><option>Después de la medicación</option><option>Sin relación inmediata</option></select>
           </div>
           <div><label for="readingNotes">Observaciones</label><input id="readingNotes" maxlength="100"></div>
         </div>
-        <div class="actions"><button class="primary" type="submit">Guardar medición</button><button type="button" id="cancelReading">Cancelar edición</button></div>
+        <div class="actions"><button class="positive-action save-reading" type="submit">Guardar medición</button><button type="button" id="cancelReading">Cancelar edición</button></div>
         <p class="hint">Se conservan hasta 30 mediciones por paciente. La número 31 reemplaza automáticamente a la más antigua.</p>
       </form>
     </section>
 
     <section id="medicacion" class="card">
-      <h2>Medicación habitual</h2>
+      <h2>Medicación habitual <span class="patient-context" data-patient-context></span> <button class="context-help no-print" type="button" data-help-topic="medication" aria-label="Ayuda sobre medicación habitual" title="Ayuda sobre medicación habitual">?</button></h2>
       <form id="medForm" class="no-print">
         <input id="medId" type="hidden">
         <div class="grid four">
@@ -81,7 +116,7 @@
           <div><label for="medTimes">Horario(s)</label><input id="medTimes" required maxlength="60"></div>
           <div><label for="medNotes">Observaciones</label><input id="medNotes" maxlength="80"></div>
         </div>
-        <div class="actions"><button class="primary" type="submit">Guardar medicamento</button><button type="button" id="cancelMed">Cancelar edición</button></div>
+        <div class="actions"><button class="positive-action" type="submit">Guardar medicamento</button><button type="button" id="cancelMed">Cancelar edición</button></div>
       </form>
       <div class="table-wrap"><table>
         <thead><tr><th>Medicamento</th><th>Dosis</th><th>Horario(s)</th><th>Observaciones</th><th class="no-print">Acciones</th></tr></thead>
@@ -91,37 +126,162 @@
 
     <section id="estadisticas" class="card">
       <div class="section-head">
-        <div><h2>Estadísticas</h2><p id="periodLabel" class="muted"></p></div>
+        <div><h2>Estadísticas <span class="patient-context" data-patient-context></span></h2><p id="periodLabel" class="muted"></p></div>
         <div class="no-print"><label for="rangeSelect">Período</label>
-          <select id="rangeSelect"><option value="all" selected>Todos los registros</option><option value="30">Últimos 30 días</option><option value="183">Últimos 6 meses</option><option value="365">Último año</option></select><p class="hint">“Total almacenado” muestra todos los registros recuperados. “En el período” depende del filtro elegido.</p>
+          <select id="rangeSelect"><option value="30">Últimos 30 días</option><option value="183">Últimos 6 meses</option><option value="365">Último año</option><option value="all">Todos los registros</option></select>
         </div>
       </div>
       <div id="stats" class="stats"></div>
     </section>
 
     <section class="card">
-      <h2>Evolución</h2>
-      <p class="muted">Líneas continuas: valores diarios. Líneas discontinuas: promedio móvil de 7 días.</p>
+      <h2>Evolución <span class="patient-context" data-patient-context></span></h2>
       <div class="chart-legend" aria-label="Referencias del gráfico">
-        <span><i style="background:#c62828"></i> Presión sistólica</span>
-        <span><i style="background:#2457c5"></i> Presión diastólica</span>
-        <span><i style="background:#067647"></i> Frecuencia cardíaca</span>
+        <span><i class="legend-dot legend-sys"></i>Sistólica</span>
+        <span><i class="legend-dot legend-dia"></i>Diastólica</span>
+        <span><i class="legend-dot legend-pulse"></i>Frecuencia cardíaca</span>
+        <span><i class="legend-line legend-average"></i>Promedio móvil de 7 días</span>
       </div>
       <canvas id="chart" width="1000" height="360"></canvas>
     </section>
 
     <section id="informe" class="card">
-      <h2>Registro de mediciones</h2>
+      <div class="section-head medication-period-head">
+        <div>
+          <h2>Listado de mediciones ordenadas por fecha <span class="patient-context" data-patient-context></span></h2>
+          <p class="muted">Las mediciones más recientes se muestran primero.</p>
+        </div>
+      </div>
+
+      <div id="medicationPeriodIntro" class="medication-period-intro no-print">
+        <strong>Comparar períodos por cambio de medicación</strong>
+        <p>En la tabla, marque la medición a partir de la cual comenzó el cambio de medicación. Si el cambio tuvo una fecha de finalización, puede marcar también esa medición.</p>
+      </div>
+
+      <div id="periodComparison" class="period-comparison" hidden></div>
+
       <div class="table-wrap"><table>
-        <thead><tr><th>Fecha</th><th>Hora</th><th>Sistólica</th><th>Diastólica</th><th>Pulso</th><th>Medicación</th><th>Observaciones</th><th class="no-print">Acciones</th></tr></thead>
+        <thead><tr><th>Fecha</th><th>Hora</th><th>Sistólica</th><th>Diastólica</th><th>Pulso</th><th>Medicación</th><th>Observaciones</th><th class="no-print reading-actions-head"><div><span>Acciones</span><button id="clearMedicationPeriodBtn" class="small" type="button" hidden>Quitar sectorización</button></div></th></tr></thead>
         <tbody id="readingRows"></tbody>
       </table></div>
     </section>
+
+    <section id="acerca" class="card about-card no-print">
+      <h2>Acerca de CardioRegistro</h2>
+      <p><strong>CardioRegistro</strong> es una aplicación desarrollada íntegramente por <strong>José María Condomí Alcorta</strong> y <strong>Data (ChatGPT)</strong>.</p>
+      <p>Su objetivo es facilitar el registro domiciliario de la presión arterial mediante una herramienta sencilla, clara y respetuosa con el usuario, permitiendo organizar las mediciones, generar gráficos de evolución e imprimir informes para su consulta médica.</p>
+      <p>El desarrollo de CardioRegistro continúa de manera permanente, incorporando nuevas funciones y mejoras sugeridas por los propios usuarios.</p>
+      <p><strong>La versión actual es el resultado de un proceso de desarrollo iterativo que incluyó miles de líneas de código escritas, revisadas y refinadas a lo largo de numerosas versiones.</strong></p>
+
+      <div class="technical-info" aria-label="Información técnica">
+        <div><span>Versión</span><strong>3.3 Estable</strong></div>
+        <div><span>Desarrolladores</span><strong>José María Condomí Alcorta y Data (ChatGPT)</strong></div>
+        <div><span>Tecnologías</span><strong>HTML, CSS y JavaScript</strong></div>
+        <div><span>Desarrollo</span><strong>Proceso iterativo en numerosas versiones</strong></div>
+        <div><span>Licencia</span><strong>Todos los derechos reservados</strong></div>
+      </div>
+
+      <div class="support-box">
+        <h3>Colaboración voluntaria</h3>
+        <p>Si considera que CardioRegistro le resulta útil y desea colaborar con su desarrollo, puede hacerlo de manera completamente voluntaria mediante el siguiente alias de Mercado Pago.</p>
+        <div class="alias-row">
+          <div><span class="muted">Alias de Mercado Pago</span><strong id="mercadoPagoAlias">jmcondomialcorta.mp</strong></div>
+          <button id="copyAliasBtn" class="positive-action" type="button">Copiar alias</button>
+        </div>
+        <p class="hint" id="aliasHint">Toque el botón para copiar el alias al portapapeles.</p>
+        <p><strong>La colaboración es totalmente opcional. Todas las funciones de CardioRegistro permanecen habilitadas independientemente de que decida colaborar o no.</strong></p>
+      </div>
+    </section>
+
+    <!-- Hoja adicional de resumen comparativo: visible sólo al imprimir/PDF -->
+    <section id="printSummarySheet" class="print-summary-sheet print-only" aria-label="Resumen comparativo para impresión">
+      <div id="printSummaryContent"></div>
+    </section>
   </main>
 
-  <footer>© 2026 José María Condomí Alcorta. Todos los derechos reservados.<br>CardioRegistro V3.0.3 — Desarrollado por José María Condomí Alcorta y Data (ChatGPT).</footer>
+  <footer>© 2026 José María Condomí Alcorta. Todos los derechos reservados.<br>CardioRegistro V3.3 Estable — Desarrollado por José María Condomí Alcorta y Data (ChatGPT).</footer>
 </div>
 <div id="toast" role="status"></div>
+<!-- Primera apertura -->
+<div id="welcomeModal" class="modal-backdrop" hidden>
+  <section class="modal-card welcome-card" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+    <h2 id="welcomeTitle">Bienvenido a CardioRegistro</h2>
+    <p>Seleccione cómo desea comenzar:</p>
+    <div class="welcome-options">
+      <button id="demoStartBtn" class="welcome-option">
+        <strong>Ver una demostración</strong>
+        <span>La aplicación cargará automáticamente una base de datos de demostración con información ficticia.</span>
+        <small>Los datos mostrados no corresponden a personas reales.</small>
+      </button>
+      <button id="emptyStartBtn" class="welcome-option">
+        <strong>Iniciar una nueva base</strong>
+        <span>Iniciar una nueva base para registrar sus propias mediciones.</span>
+      </button>
+    </div>
+    <p class="hint">Esta pantalla se mostrará únicamente la primera vez que utilice CardioRegistro.</p>
+  </section>
+</div>
+
+<!-- Ayuda -->
+<div id="helpModal" class="modal-backdrop no-print" hidden>
+  <section class="modal-card help-card" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+    <h2 id="helpTitle">Ayuda de CardioRegistro</h2>
+    <p class="help-intro">Guía breve para utilizar la aplicación sin perder de vista al paciente activo.</p>
+
+    <h3>Paciente activo</h3>
+    <p>Seleccione el paciente en la parte superior. Su nombre aparece también junto a los títulos de las secciones para que pueda comprobar en todo momento con qué paciente está trabajando.</p>
+
+    <h3>Registrar una medición</h3>
+    <p>Ingrese fecha, hora, presión sistólica, presión diastólica y frecuencia cardíaca. Puede agregar la relación con la medicación y una observación. Al guardar, los datos quedan almacenados en este navegador.</p>
+
+    <h3>Cambio de medicación</h3>
+    <p>En el listado de mediciones, utilice <strong>Inicio cambio</strong> sobre la medición que marque el comienzo. Si el período tuvo una finalización, utilice <strong>Fin cambio</strong>. La comparación descriptiva utiliza esas fechas para separar los períodos.</p>
+    <p>Si necesita corregirlo, puede marcar otro inicio o fin. Cuando exista una sectorización activa, aparecerá <strong>Quitar sectorización</strong>; esta acción elimina sólo las marcas, nunca las mediciones.</p>
+
+    <h3>Estadísticas y gráfico</h3>
+    <p>El selector de período modifica las Estadísticas y el gráfico. La comparación por cambio de medicación se rige por las fechas marcadas en la sectorización.</p>
+
+    <h3>Imprimir o guardar en PDF</h3>
+    <p>El botón <strong>Guardar e imprimir/PDF</strong> guarda primero la sesión y abre la impresión del navegador. Desde allí puede imprimir o elegir la opción de guardar como PDF.</p>
+
+    <h3>¿Cómo tomarse la presión?</h3>
+    <p>Antes de medir, permanezca sentado y en reposo durante unos 5 minutos. Mantenga la espalda apoyada, los pies en el suelo y las piernas sin cruzar. Coloque el manguito sobre el brazo descubierto y apoye el brazo a la altura del corazón. Durante la medición permanezca quieto y no hable. Si su médico se lo indicó, realice dos mediciones separadas por aproximadamente un minuto.</p>
+    <p><strong>Siga siempre las indicaciones de su médico y las instrucciones de su tensiómetro.</strong></p>
+
+    <div class="modal-actions">
+      <button id="closeHelpBtn" class="positive-action" type="button">Cerrar</button>
+    </div>
+  </section>
+</div>
+
+<!-- Ayuda contextual -->
+<div id="contextHelpModal" class="modal-backdrop no-print" hidden>
+  <section class="modal-card context-help-card" role="dialog" aria-modal="true" aria-labelledby="contextHelpTitle">
+    <h2 id="contextHelpTitle">Ayuda</h2>
+    <div id="contextHelpBody"></div>
+    <div class="modal-actions"><button id="closeContextHelpBtn" class="positive-action" type="button">Cerrar</button></div>
+  </section>
+</div>
+
+<!-- Confirmación de reinicio -->
+<div id="resetModal" class="modal-backdrop" hidden>
+  <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="resetTitle">
+    <h2 id="resetTitle">Reiniciar aplicación</h2>
+    <p><strong>¿Está seguro de que desea reiniciar CardioRegistro?</strong></p>
+    <p>Esta acción eliminará todos los datos almacenados en la aplicación, incluyendo:</p>
+    <ul>
+      <li>Mediciones registradas.</li>
+      <li>Medicamentos.</li>
+      <li>Configuración inicial.</li>
+    </ul>
+    <p><strong>Esta operación no puede deshacerse.</strong></p>
+    <div class="modal-actions">
+      <button id="cancelResetBtn">Cancelar</button>
+      <button id="confirmResetBtn" class="danger">Reiniciar aplicación</button>
+    </div>
+  </section>
+</div>
+
 <script src="datos/respaldo-inicial.js"></script>
 <script src="js/utilidades.js"></script>
 <script src="js/datos.js"></script>

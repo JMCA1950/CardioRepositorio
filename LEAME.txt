@@ -1,9 +1,109 @@
-CARDIOREGISTRO V3.0
+CardioRegistro V3.3 Estable
 
-1. Descomprima la carpeta completa.
-2. Abra index.html.
-3. No separe index.html de las carpetas css, js y datos.
-4. La aplicación incorpora el respaldo histórico entregado.
-5. Use “Guardar respaldo” periódicamente.
+PROTOTIPO DE PRUEBA — NO REEMPLAZA V3.1 ESTABLE
 
-También se entrega una versión independiente de un solo archivo para uso directo.
+Novedad principal:
+- Sectorización de la tabla a partir de una medición marcada como inicio de cambio de medicación.
+- Finalización opcional del período.
+- Métricas separadas para "Antes del cambio" y "Desde/Durante el cambio".
+- Diferencias descriptivas de promedios de sistólica, diastólica y pulso.
+- Las mediciones posteriores a una fecha de finalización permanecen visibles pero quedan fuera de la comparación.
+
+Cómo probar:
+1. Abra index.html.
+2. En el listado de mediciones, pulse "Inicio cambio" sobre una medición.
+3. Opcionalmente pulse "Fin cambio" sobre una medición posterior.
+4. Revise la sectorización de la tabla y las métricas comparativas.
+5. Use "Quitar sectorización" para volver a la vista normal.
+
+La interpretación clínica continúa correspondiendo al médico.
+
+Seguridad de prueba:
+Esta versión utiliza un almacenamiento separado de V3.1 Estable. Al abrirla por primera vez puede tomar una copia de los datos existentes de V3.1, pero sus cambios posteriores se guardan en el espacio de desarrollo y no modifican la base de la versión estable.
+
+Cambios de Desarrollo 03:
+- El botón “Quitar sectorización” permanece junto al título del listado y sólo aparece cuando existe una sectorización activa.
+- La sección “Acerca de CardioRegistro” permanece visible en pantalla, pero queda excluida de la impresión/PDF.
+
+Ajustes de Desarrollo 03:
+- “Quitar sectorización” se ubica en la fila de encabezados de la tabla y sólo aparece cuando existe una sectorización activa.
+- El nombre del paciente se destaca en negrita y con un tamaño ligeramente mayor.
+- “Acerca de CardioRegistro” permanece excluido de impresión/PDF.
+
+
+CAMBIO PRINCIPAL DE V3.3 DESARROLLO 01
+--------------------------------------
+La comparación descriptiva por cambio de medicación utiliza ahora exactamente el mismo período seleccionado en la cápsula Estadísticas (30 días, 6 meses, 1 año o todos los registros).
+
+De esta forma, Estadísticas, gráfico y comparación descriptiva trabajan sobre el mismo conjunto temporal de mediciones y sus cantidades son coherentes entre sí.
+
+La sectorización continúa tomando como referencia las mediciones marcadas como inicio y, opcionalmente, fin del cambio de medicación.
+
+
+AJUSTE DESARROLLO 02
+- Estadísticas y gráfico continúan obedeciendo al período seleccionado.
+- La comparación descriptiva por cambio de medicación vuelve a usar todas las mediciones definidas por las marcas Inicio/Fin.
+- La leyenda de la comparación indica: 'Según fechas del cambio'.
+
+
+Cambios Desarrollo 03:
+- Nombre del paciente visible junto a los títulos de las secciones principales.
+- Botón Ayuda con guía breve de uso y recomendaciones para la toma domiciliaria.
+
+
+Ajuste Desarrollo 06:
+- El separador de inicio queda entre el bloque previo y la primera medición del cambio.
+- El separador de fin queda entre la última medición del cambio y la primera medición posterior.
+- Si todavía no existe una medición posterior, el separador de fin no se muestra.
+
+
+Ajuste Desarrollo 17:
+- Se incorporó una hoja adicional al informe impreso/PDF, basada en el concepto visual del resumen de Juan y María.
+- La hoja se genera dinámicamente con los nombres y mediciones reales de ambos pacientes.
+- Resume datos generales y períodos antes/durante/después de un cambio de medicación cuando la sectorización existe.
+- La comparación es estrictamente descriptiva y no formula conclusiones clínicas.
+- No se agregan datos personales que CardioRegistro no registra (por ejemplo fecha de nacimiento, sexo o documento).
+
+
+CAMBIOS DE DESARROLLO 09
+- La base nueva comienza con un solo paciente. Pueden agregarse pacientes cuando sea necesario y eliminarse siempre que quede al menos uno.
+- En el listado, Editar/Eliminar ocupan la primera línea y las acciones Inicio cambio/Fin cambio se agrupan en una segunda línea.
+- Guardar respaldo y Recuperar respaldo se agrupan en una segunda línea del menú principal.
+- Se incorporó ayuda contextual mediante pequeños botones ? en Paciente/s, Nueva medición y Medicación habitual.
+- Se mantiene el botón Ayuda general.
+
+Ajuste Desarrollo 17:
+- Reorganización del menú principal en bloques funcionales: Paciente activo | acciones de trabajo | información | reinicio.
+- Incorporación de ayudas contextuales en Guardar e imprimir/PDF, Guardar respaldo y Recuperar respaldo.
+
+Ajuste Desarrollo 17:
+- Bloque central reorganizado en dos niveles: Guardar e imprimir/PDF arriba; Guardar respaldo y Recuperar respaldo abajo, al mismo nivel.
+
+Ajuste Desarrollo 17:
+- Corrección del bloque central para que Guardar respaldo y Recuperar respaldo queden en la misma línea.
+
+Ajuste Desarrollo 17:
+- Se desplazó hacia la izquierda la separación entre Paciente activo y el bloque central, otorgando más ancho al grupo Guardar/Respaldo.
+- Se mantuvo Recuperar respaldo en una sola línea y con la misma altura visual que los otros botones del bloque central.
+
+Ajuste Desarrollo 17:
+- Corrección conservadora del menú principal: se recuperó la visibilidad de Ayuda e Informe técnico.
+- Se redujeron anchos mínimos y espaciados antes de expandir el bloque central.
+- Guardar respaldo y Recuperar respaldo permanecen alineados al mismo nivel, siempre que el ancho disponible lo permita.
+
+Ajuste Desarrollo 17:
+- Se completó la grilla del resumen final: la separación entre períodos recorre también la columna Período y la última fila queda cerrada.
+- El pie de autoría/copyright se integró en la misma hoja del resumen final para evitar una página independiente.
+
+Ajuste Desarrollo 17:
+- Se reforzó explícitamente la línea divisoria entre períodos también en la columna Período de la hoja final.
+- Se mantiene el pie integrado en la misma hoja.
+
+Ajuste Desarrollo 17:
+- Se reemplazó la primera celda de cada período por una celda regular con estilo propio para forzar la línea divisoria también en la columna Período.
+- Se reforzó la impresión de esa columna en la hoja final.
+
+V3.3 Estable:
+- Base funcional: Desarrollo 17, previamente probada.
+- Ajuste final: mayor contraste de la línea divisoria entre períodos en la hoja de resumen impreso/PDF.
+- No se modificó la clave de almacenamiento local para preservar continuidad de los datos existentes al actualizar sobre el mismo origen.

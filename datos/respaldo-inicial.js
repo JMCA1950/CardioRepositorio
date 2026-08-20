@@ -1,1 +1,533 @@
-window.CARDIO_BACKUP_INICIAL={"currentPatient":"p2","patients":{"p1":{"name":"SUSANA","measurements":[{"id":"mrupxtnltkixt","date":"2025-12-30","time":"12:38","sys":103,"dia":67,"pulse":66,"notes":""},{"id":"mrur6z4ulpaed","date":"2026-01-11","time":"10:59","sys":109,"dia":73,"pulse":69,"notes":""},{"id":"mrw9upjzwokuh","date":"2026-02-23","time":"19:51","sys":98,"dia":72,"pulse":97,"notes":""},{"id":"mrupvlaih6z05","date":"2026-03-24","time":"17:48","sys":86,"dia":56,"pulse":64,"notes":""},{"id":"mrupuowp3gyjn","date":"2026-03-25","time":"11:19","sys":98,"dia":63,"pulse":63,"notes":""},{"id":"mrupttmt88ait","date":"2026-03-26","time":"12:30","sys":93,"dia":59,"pulse":61,"notes":""},{"id":"mrups4jdcdtag","date":"2026-04-01","time":"19:57","sys":84,"dia":61,"pulse":70,"notes":""},{"id":"mrupr4w2h7zo4","date":"2026-04-02","time":"12:53","sys":93,"dia":57,"pulse":54,"notes":""},{"id":"mrupq7xgfezv7","date":"2026-04-21","time":"12:20","sys":95,"dia":66,"pulse":56,"notes":""},{"id":"mrur36yh58tth","date":"2026-05-17","time":"19:26","sys":112,"dia":66,"pulse":62,"notes":""},{"id":"mrurg780mx724","date":"2026-05-30","time":"11:20","sys":118,"dia":75,"pulse":70,"notes":""},{"id":"mruppddab92mu","date":"2026-07-15","time":"02:13","sys":97,"dia":76,"pulse":71,"notes":""},{"id":"mrupob7t84ae1","date":"2026-07-15","time":"10:23","sys":102,"dia":70,"pulse":61,"notes":""},{"id":"mrupnl301oxij","date":"2026-07-15","time":"22:08","sys":113,"dia":59,"pulse":64,"notes":""},{"id":"mrupmmbeuk3te","date":"2026-07-17","time":"12:16","sys":94,"dia":63,"pulse":56,"notes":""},{"id":"mruplb47wvscz","date":"2026-07-18","time":"02:11","sys":106,"dia":63,"pulse":62,"notes":""},{"id":"mruqyefralc1a","date":"2026-07-20","time":"12:30","sys":107,"dia":66,"pulse":68,"notes":""},{"id":"mrw9h7yuwcyl0","date":"2026-07-22","time":"12:51","sys":97,"dia":61,"pulse":61,"notes":""},{"id":"mrycsgsyyo80q","date":"2026-07-23","time":"21:40","sys":124,"dia":73,"pulse":63,"notes":"Tomó 1/2 dosis"},{"id":"mrycrd8r09ple","date":"2026-07-23","time":"23:59","sys":124,"dia":93,"pulse":60,"notes":"Tomó 1/2 dosis"}],"medications":[{"id":"mruriqjzumebk","name":"Bisopil 5","dose":"5mg","time":"13:00","notes":"con el almuerzo","active":true},{"id":"mruroqvb1gekd","name":"SEGREN","dose":"200","time":"13:00","notes":"Durante el almuerzo","active":true},{"id":"mrurmcohpc8ss","name":"Losacord D","dose":"50 + 12,5 hidroclorotiazida","time":"20:00","notes":"Durante la cena","active":true},{"id":"mrurnr25m4s9n","name":"Hipolipol","dose":"10 mg","time":"20:00","notes":"Durante la cena","active":true}]},"p2":{"name":"JOSE MARIA","measurements":[{"id":"mrup1gb8yabbf","date":"2026-03-25","time":"11:11","sys":128,"dia":79,"pulse":68,"notes":""},{"id":"mrup0bblcnhji","date":"2026-03-26","time":"11:38","sys":128,"dia":78,"pulse":68,"notes":""},{"id":"mruozhcqj3uxh","date":"2026-03-31","time":"19:37","sys":138,"dia":78,"pulse":79,"notes":""},{"id":"mruoyl1pxm4vq","date":"2026-04-01","time":"19:59","sys":140,"dia":76,"pulse":75,"notes":""},{"id":"mruou3jd7m7qs","date":"2026-04-02","time":"12:17","sys":132,"dia":77,"pulse":66,"notes":""},{"id":"mruoxp6jds2vq","date":"2026-04-02","time":"12:56","sys":135,"dia":77,"pulse":67,"notes":""},{"id":"mruowubqm31x6","date":"2026-04-06","time":"15:06","sys":133,"dia":77,"pulse":64,"notes":""},{"id":"mruovxklf5ueo","date":"2026-04-17","time":"09:16","sys":126,"dia":84,"pulse":64,"notes":""},{"id":"mruouzm8j5tz2","date":"2026-04-20","time":"10:37","sys":135,"dia":75,"pulse":65,"notes":""},{"id":"mruot4ldxfdw2","date":"2026-04-23","time":"01:05","sys":129,"dia":76,"pulse":71,"notes":""},{"id":"mruor4fzgwu10","date":"2026-06-20","time":"21:56","sys":156,"dia":77,"pulse":90,"notes":"Gran disgusto"},{"id":"mruoou7c4ugj0","date":"2026-06-21","time":"02:21","sys":129,"dia":77,"pulse":64,"notes":""},{"id":"mrv68bqmi9plg","date":"2026-07-02","time":"10:23","sys":131,"dia":83,"pulse":64,"notes":""},{"id":"mruom7j6hemzk","date":"2026-07-02","time":"22:12","sys":149,"dia":85,"pulse":79,"notes":""},{"id":"mruoku5gazhk1","date":"2026-07-05","time":"10:14","sys":140,"dia":83,"pulse":64,"notes":""},{"id":"mruojlrm3d3t9","date":"2026-07-06","time":"01:48","sys":134,"dia":83,"pulse":63,"notes":""},{"id":"mruoi5wsd2vut","date":"2026-07-08","time":"12:50","sys":136,"dia":81,"pulse":65,"notes":""},{"id":"mruoh5tdryizd","date":"2026-07-12","time":"13:33","sys":148,"dia":75,"pulse":76,"notes":""},{"id":"mruoc6dsikjm9","date":"2026-07-15","time":"02:11","sys":132,"dia":80,"pulse":68,"notes":""},{"id":"mruofg5xa6m5b","date":"2026-07-15","time":"12:26","sys":141,"dia":87,"pulse":62,"notes":""},{"id":"mruoeh2w097fm","date":"2026-07-15","time":"15:23","sys":140,"dia":82,"pulse":71,"notes":""},{"id":"mruodaz2dxleu","date":"2026-07-15","time":"19:10","sys":141,"dia":89,"pulse":66,"notes":""},{"id":"mruoa72nw9qzx","date":"2026-07-16","time":"10:20","sys":136,"dia":83,"pulse":66,"notes":""},{"id":"mruob87l4eii4","date":"2026-07-16","time":"12:52","sys":137,"dia":84,"pulse":64,"notes":""},{"id":"mruo5tlwjdhma","date":"2026-07-16","time":"16:21","sys":136,"dia":78,"pulse":68,"notes":""},{"id":"mruo4d9uuinoa","date":"2026-07-17","time":"12:18","sys":130,"dia":80,"pulse":64,"notes":""},{"id":"mruo395ktsylh","date":"2026-07-18","time":"02:11","sys":130,"dia":79,"pulse":67,"notes":""},{"id":"mrw9f1toyo0e0","date":"2026-07-22","time":"12:49","sys":129,"dia":79,"pulse":68,"notes":""},{"id":"mrycz1ex7lc78","date":"2026-07-23","time":"11:23","sys":136,"dia":76,"pulse":69,"notes":""},{"id":"mrycwrrk0z6r5","date":"2026-07-24","time":"00:03","sys":136,"dia":76,"pulse":69,"notes":""}],"medications":[{"id":"mrupewcmwmdcl","name":"ISOBLOC","dose":"6,25","time":"09:15","notes":"Antes del desayuno","active":true},{"id":"mrupbktgyh2no","name":"SEGREN","dose":"200","time":"13:00","notes":"durante el almuerzo","active":true},{"id":"mrup890axo305","name":"Rosuvastatina","dose":"10mg","time":"20:00","notes":"Con la cena","active":true},{"id":"mrupg5o1v4gfn","name":"ISOBLOC","dose":"6,25mg","time":"20:15","notes":"Durante la cena","active":true}]}}};
+window.CARDIO_BACKUP_INICIAL = {
+  "currentPatient": "p2",
+  "patients": {
+    "p1": {
+      "name": "SUSANA",
+      "measurements": [
+        {
+          "id": "mrupxtnltkixt",
+          "date": "2025-12-30",
+          "time": "12:38",
+          "sys": 103,
+          "dia": 67,
+          "pulse": 66,
+          "notes": ""
+        },
+        {
+          "id": "mrur6z4ulpaed",
+          "date": "2026-01-11",
+          "time": "10:59",
+          "sys": 109,
+          "dia": 73,
+          "pulse": 69,
+          "notes": ""
+        },
+        {
+          "id": "mrw9upjzwokuh",
+          "date": "2026-02-23",
+          "time": "19:51",
+          "sys": 98,
+          "dia": 72,
+          "pulse": 97,
+          "notes": ""
+        },
+        {
+          "id": "mrupvlaih6z05",
+          "date": "2026-03-24",
+          "time": "17:48",
+          "sys": 86,
+          "dia": 56,
+          "pulse": 64,
+          "notes": ""
+        },
+        {
+          "id": "mrupuowp3gyjn",
+          "date": "2026-03-25",
+          "time": "11:19",
+          "sys": 98,
+          "dia": 63,
+          "pulse": 63,
+          "notes": ""
+        },
+        {
+          "id": "mrupttmt88ait",
+          "date": "2026-03-26",
+          "time": "12:30",
+          "sys": 93,
+          "dia": 59,
+          "pulse": 61,
+          "notes": ""
+        },
+        {
+          "id": "mrups4jdcdtag",
+          "date": "2026-04-01",
+          "time": "19:57",
+          "sys": 84,
+          "dia": 61,
+          "pulse": 70,
+          "notes": ""
+        },
+        {
+          "id": "mrupr4w2h7zo4",
+          "date": "2026-04-02",
+          "time": "12:53",
+          "sys": 93,
+          "dia": 57,
+          "pulse": 54,
+          "notes": ""
+        },
+        {
+          "id": "mrupq7xgfezv7",
+          "date": "2026-04-21",
+          "time": "12:20",
+          "sys": 95,
+          "dia": 66,
+          "pulse": 56,
+          "notes": ""
+        },
+        {
+          "id": "mrur36yh58tth",
+          "date": "2026-05-17",
+          "time": "19:26",
+          "sys": 112,
+          "dia": 66,
+          "pulse": 62,
+          "notes": ""
+        },
+        {
+          "id": "mrurg780mx724",
+          "date": "2026-05-30",
+          "time": "11:20",
+          "sys": 118,
+          "dia": 75,
+          "pulse": 70,
+          "notes": ""
+        },
+        {
+          "id": "mruppddab92mu",
+          "date": "2026-07-15",
+          "time": "02:13",
+          "sys": 97,
+          "dia": 76,
+          "pulse": 71,
+          "notes": ""
+        },
+        {
+          "id": "mrupob7t84ae1",
+          "date": "2026-07-15",
+          "time": "10:23",
+          "sys": 102,
+          "dia": 70,
+          "pulse": 61,
+          "notes": ""
+        },
+        {
+          "id": "mrupnl301oxij",
+          "date": "2026-07-15",
+          "time": "22:08",
+          "sys": 113,
+          "dia": 59,
+          "pulse": 64,
+          "notes": ""
+        },
+        {
+          "id": "mrupmmbeuk3te",
+          "date": "2026-07-17",
+          "time": "12:16",
+          "sys": 94,
+          "dia": 63,
+          "pulse": 56,
+          "notes": ""
+        },
+        {
+          "id": "mruplb47wvscz",
+          "date": "2026-07-18",
+          "time": "02:11",
+          "sys": 106,
+          "dia": 63,
+          "pulse": 62,
+          "notes": ""
+        },
+        {
+          "id": "mruqyefralc1a",
+          "date": "2026-07-20",
+          "time": "12:30",
+          "sys": 107,
+          "dia": 66,
+          "pulse": 68,
+          "notes": ""
+        },
+        {
+          "id": "mrw9h7yuwcyl0",
+          "date": "2026-07-22",
+          "time": "12:51",
+          "sys": 97,
+          "dia": 61,
+          "pulse": 61,
+          "notes": ""
+        },
+        {
+          "id": "mrycsgsyyo80q",
+          "date": "2026-07-23",
+          "time": "21:40",
+          "sys": 124,
+          "dia": 73,
+          "pulse": 63,
+          "notes": "Tomó 1/2 dosis"
+        },
+        {
+          "id": "mrycrd8r09ple",
+          "date": "2026-07-23",
+          "time": "23:59",
+          "sys": 124,
+          "dia": 93,
+          "pulse": 60,
+          "notes": "Tomó 1/2 dosis"
+        }
+      ],
+      "medications": [
+        {
+          "id": "mruriqjzumebk",
+          "name": "Bisopil 5",
+          "dose": "5mg",
+          "time": "13:00",
+          "notes": "con el almuerzo",
+          "active": true
+        },
+        {
+          "id": "mruroqvb1gekd",
+          "name": "SEGREN",
+          "dose": "200",
+          "time": "13:00",
+          "notes": "Durante el almuerzo",
+          "active": true
+        },
+        {
+          "id": "mrurmcohpc8ss",
+          "name": "Losacord D",
+          "dose": "50 + 12,5 hidroclorotiazida",
+          "time": "20:00",
+          "notes": "Durante la cena",
+          "active": true
+        },
+        {
+          "id": "mrurnr25m4s9n",
+          "name": "Hipolipol",
+          "dose": "10 mg",
+          "time": "20:00",
+          "notes": "Durante la cena",
+          "active": true
+        }
+      ]
+    },
+    "p2": {
+      "name": "JOSE MARIA",
+      "measurements": [
+        {
+          "id": "mrup1gb8yabbf",
+          "date": "2026-03-25",
+          "time": "11:11",
+          "sys": 128,
+          "dia": 79,
+          "pulse": 68,
+          "notes": ""
+        },
+        {
+          "id": "mrup0bblcnhji",
+          "date": "2026-03-26",
+          "time": "11:38",
+          "sys": 128,
+          "dia": 78,
+          "pulse": 68,
+          "notes": ""
+        },
+        {
+          "id": "mruozhcqj3uxh",
+          "date": "2026-03-31",
+          "time": "19:37",
+          "sys": 138,
+          "dia": 78,
+          "pulse": 79,
+          "notes": ""
+        },
+        {
+          "id": "mruoyl1pxm4vq",
+          "date": "2026-04-01",
+          "time": "19:59",
+          "sys": 140,
+          "dia": 76,
+          "pulse": 75,
+          "notes": ""
+        },
+        {
+          "id": "mruou3jd7m7qs",
+          "date": "2026-04-02",
+          "time": "12:17",
+          "sys": 132,
+          "dia": 77,
+          "pulse": 66,
+          "notes": ""
+        },
+        {
+          "id": "mruoxp6jds2vq",
+          "date": "2026-04-02",
+          "time": "12:56",
+          "sys": 135,
+          "dia": 77,
+          "pulse": 67,
+          "notes": ""
+        },
+        {
+          "id": "mruowubqm31x6",
+          "date": "2026-04-06",
+          "time": "15:06",
+          "sys": 133,
+          "dia": 77,
+          "pulse": 64,
+          "notes": ""
+        },
+        {
+          "id": "mruovxklf5ueo",
+          "date": "2026-04-17",
+          "time": "09:16",
+          "sys": 126,
+          "dia": 84,
+          "pulse": 64,
+          "notes": ""
+        },
+        {
+          "id": "mruouzm8j5tz2",
+          "date": "2026-04-20",
+          "time": "10:37",
+          "sys": 135,
+          "dia": 75,
+          "pulse": 65,
+          "notes": ""
+        },
+        {
+          "id": "mruot4ldxfdw2",
+          "date": "2026-04-23",
+          "time": "01:05",
+          "sys": 129,
+          "dia": 76,
+          "pulse": 71,
+          "notes": ""
+        },
+        {
+          "id": "mruor4fzgwu10",
+          "date": "2026-06-20",
+          "time": "21:56",
+          "sys": 156,
+          "dia": 77,
+          "pulse": 90,
+          "notes": "Gran disgusto"
+        },
+        {
+          "id": "mruoou7c4ugj0",
+          "date": "2026-06-21",
+          "time": "02:21",
+          "sys": 129,
+          "dia": 77,
+          "pulse": 64,
+          "notes": ""
+        },
+        {
+          "id": "mrv68bqmi9plg",
+          "date": "2026-07-02",
+          "time": "10:23",
+          "sys": 131,
+          "dia": 83,
+          "pulse": 64,
+          "notes": ""
+        },
+        {
+          "id": "mruom7j6hemzk",
+          "date": "2026-07-02",
+          "time": "22:12",
+          "sys": 149,
+          "dia": 85,
+          "pulse": 79,
+          "notes": ""
+        },
+        {
+          "id": "mruoku5gazhk1",
+          "date": "2026-07-05",
+          "time": "10:14",
+          "sys": 140,
+          "dia": 83,
+          "pulse": 64,
+          "notes": ""
+        },
+        {
+          "id": "mruojlrm3d3t9",
+          "date": "2026-07-06",
+          "time": "01:48",
+          "sys": 134,
+          "dia": 83,
+          "pulse": 63,
+          "notes": ""
+        },
+        {
+          "id": "mruoi5wsd2vut",
+          "date": "2026-07-08",
+          "time": "12:50",
+          "sys": 136,
+          "dia": 81,
+          "pulse": 65,
+          "notes": ""
+        },
+        {
+          "id": "mruoh5tdryizd",
+          "date": "2026-07-12",
+          "time": "13:33",
+          "sys": 148,
+          "dia": 75,
+          "pulse": 76,
+          "notes": ""
+        },
+        {
+          "id": "mruoc6dsikjm9",
+          "date": "2026-07-15",
+          "time": "02:11",
+          "sys": 132,
+          "dia": 80,
+          "pulse": 68,
+          "notes": ""
+        },
+        {
+          "id": "mruofg5xa6m5b",
+          "date": "2026-07-15",
+          "time": "12:26",
+          "sys": 141,
+          "dia": 87,
+          "pulse": 62,
+          "notes": ""
+        },
+        {
+          "id": "mruoeh2w097fm",
+          "date": "2026-07-15",
+          "time": "15:23",
+          "sys": 140,
+          "dia": 82,
+          "pulse": 71,
+          "notes": ""
+        },
+        {
+          "id": "mruodaz2dxleu",
+          "date": "2026-07-15",
+          "time": "19:10",
+          "sys": 141,
+          "dia": 89,
+          "pulse": 66,
+          "notes": ""
+        },
+        {
+          "id": "mruoa72nw9qzx",
+          "date": "2026-07-16",
+          "time": "10:20",
+          "sys": 136,
+          "dia": 83,
+          "pulse": 66,
+          "notes": ""
+        },
+        {
+          "id": "mruob87l4eii4",
+          "date": "2026-07-16",
+          "time": "12:52",
+          "sys": 137,
+          "dia": 84,
+          "pulse": 64,
+          "notes": ""
+        },
+        {
+          "id": "mruo5tlwjdhma",
+          "date": "2026-07-16",
+          "time": "16:21",
+          "sys": 136,
+          "dia": 78,
+          "pulse": 68,
+          "notes": ""
+        },
+        {
+          "id": "mruo4d9uuinoa",
+          "date": "2026-07-17",
+          "time": "12:18",
+          "sys": 130,
+          "dia": 80,
+          "pulse": 64,
+          "notes": ""
+        },
+        {
+          "id": "mruo395ktsylh",
+          "date": "2026-07-18",
+          "time": "02:11",
+          "sys": 130,
+          "dia": 79,
+          "pulse": 67,
+          "notes": ""
+        },
+        {
+          "id": "mrw9f1toyo0e0",
+          "date": "2026-07-22",
+          "time": "12:49",
+          "sys": 129,
+          "dia": 79,
+          "pulse": 68,
+          "notes": ""
+        },
+        {
+          "id": "mrycz1ex7lc78",
+          "date": "2026-07-23",
+          "time": "11:23",
+          "sys": 136,
+          "dia": 76,
+          "pulse": 69,
+          "notes": ""
+        },
+        {
+          "id": "mrycwrrk0z6r5",
+          "date": "2026-07-24",
+          "time": "00:03",
+          "sys": 136,
+          "dia": 76,
+          "pulse": 69,
+          "notes": ""
+        }
+      ],
+      "medications": [
+        {
+          "id": "mrupewcmwmdcl",
+          "name": "ISOBLOC",
+          "dose": "6,25",
+          "time": "09:15",
+          "notes": "Antes del desayuno",
+          "active": true
+        },
+        {
+          "id": "mrupbktgyh2no",
+          "name": "SEGREN",
+          "dose": "200",
+          "time": "13:00",
+          "notes": "durante el almuerzo",
+          "active": true
+        },
+        {
+          "id": "mrup890axo305",
+          "name": "Rosuvastatina",
+          "dose": "10mg",
+          "time": "20:00",
+          "notes": "Con la cena",
+          "active": true
+        },
+        {
+          "id": "mrupg5o1v4gfn",
+          "name": "ISOBLOC",
+          "dose": "6,25mg",
+          "time": "20:15",
+          "notes": "Durante la cena",
+          "active": true
+        }
+      ]
+    }
+  }
+};

@@ -1,9 +1,9 @@
 
 :root{--bg:#f3f6fb;--card:#fff;--ink:#182230;--muted:#667085;--line:#d7deea;--blue:#2457c5;--blue2:#eaf0ff;--red:#b42318;--green:#067647;--shadow:0 8px 28px rgba(28,45,80,.08)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif}.app{max-width:1180px;margin:auto;padding:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif}.app{max-width:1180px;margin:auto;padding:18px}
 .hero{background:linear-gradient(135deg,#173b8f,#2c66d0);color:#fff;padding:24px;border-radius:22px;box-shadow:var(--shadow);display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center}
 h1{margin:0;font-size:clamp(1.8rem,4vw,2.6rem)}h1 span{font-size:.55em;font-weight:650}.subtitle{font-size:1.1rem;margin:6px 0}.credit{margin:0;opacity:.93}.medical-note{background:#fff;color:#344054;border-radius:14px;padding:14px;line-height:1.45}
-.workflow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:16px 0}.workflow a{text-decoration:none;color:#344054;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px;text-align:center;font-weight:750}
+.workflow{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:16px 0}.workflow a{text-decoration:none;color:#344054;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px;text-align:center;font-weight:750}
 .toolbar{display:grid;grid-template-columns:1fr repeat(4,auto);gap:10px;align-items:end;margin-bottom:14px}.patient-switch{display:flex;gap:8px;flex-wrap:wrap}
 button,.patient-button{border:0;border-radius:10px;padding:10px 14px;font:inherit;font-weight:750;background:#e9edf5;color:#22304d;cursor:pointer}.primary{background:var(--blue);color:#fff}.danger{background:#fee4e2;color:var(--red)}.small{padding:7px 9px;font-size:.87rem}.patient-button{border:1px solid var(--line);background:#fff}.patient-button.active{background:var(--blue);color:#fff;border-color:var(--blue)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);margin-bottom:14px;min-width:0}.card h2{margin-top:0}.grid{display:grid;gap:12px}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.four{grid-template-columns:repeat(4,minmax(0,1fr))}.second-row{margin-top:12px}
@@ -11,11 +11,214 @@ label{display:block;font-size:.92rem;font-weight:750;margin-bottom:5px}input,sel
 .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.hint,.muted{color:var(--muted);font-size:.9rem}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end}
 .stats{display:grid;grid-template-columns:repeat(6,minmax(110px,1fr));gap:10px}.stat{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fbfcfe}.stat b{display:block;font-size:1.32rem;margin-top:4px}
 .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse;min-width:760px}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f7f9fc;position:sticky;top:0}tr:last-child td{border-bottom:0}.empty{text-align:center;color:var(--muted);padding:24px}
-.chart-legend{display:flex;flex-wrap:wrap;gap:.65rem 1.15rem;margin:.45rem 0 .75rem;font-size:.9rem;color:var(--ink)}
-.chart-legend span{display:inline-flex;align-items:center;gap:.4rem}
-.chart-legend i{display:inline-block;width:22px;height:4px;border-radius:999px;flex:0 0 auto}
 canvas{display:block;width:100%;height:320px;border:1px solid var(--line);border-radius:12px;background:#fff}footer{text-align:center;color:var(--muted);font-size:.9rem;padding:20px 6px 34px}
 #toast{position:fixed;right:18px;bottom:18px;max-width:360px;background:#172033;color:#fff;padding:12px 15px;border-radius:12px;opacity:0;transform:translateY(12px);pointer-events:none;transition:.2s;z-index:99}#toast.show{opacity:1;transform:none}
 @media(max-width:900px){.hero{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr 1fr}.toolbar>div:first-child{grid-column:1/-1}.stats{grid-template-columns:repeat(3,1fr)}.four{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.app{padding:10px}.hero{padding:18px;border-radius:16px}.workflow{display:flex;flex-direction:column}.workflow a{text-align:left}.toolbar,.two,.three,.four{grid-template-columns:1fr}.toolbar>div:first-child{grid-column:auto}.stats{grid-template-columns:repeat(2,1fr)}.section-head{display:block}.actions{display:grid}.actions button,.toolbar button{width:100%}canvas{height:260px}}
 @media print{@page{size:A4;margin:12mm}body{background:#fff;font-size:10pt}.app{max-width:none;padding:0}.no-print,.workflow,.toolbar,.actions,.hint{display:none!important}.hero{background:#fff!important;color:#000!important;box-shadow:none;border:1px solid #bbb;padding:12px}.medical-note{border:1px solid #bbb}.card{box-shadow:none;border:1px solid #bbb;break-inside:avoid;padding:12px}.table-wrap{overflow:visible}table{min-width:0;font-size:8.6pt}th,td{padding:5px}canvas{height:235px}footer{padding:10px 0}}
+
+.modal-open{overflow:hidden}.modal-backdrop{position:fixed;inset:0;background:rgba(11,18,32,.66);display:grid;place-items:center;padding:18px;z-index:1000}.modal-backdrop[hidden]{display:none}.modal-card{width:min(560px,100%);max-height:calc(100vh - 36px);overflow:auto;background:#fff;border-radius:18px;padding:22px;box-shadow:0 24px 70px rgba(0,0,0,.28);border:1px solid var(--line)}.modal-card h2{margin-top:0}.modal-card ul{padding-left:22px;line-height:1.7}.modal-actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:20px}.welcome-card{width:min(720px,100%)}.welcome-options{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}.welcome-option{text-align:left;background:#fff;border:1px solid var(--line);padding:18px;border-radius:14px;display:flex;flex-direction:column;gap:8px;min-height:154px}.welcome-option:hover,.welcome-option:focus{border-color:var(--blue);outline:3px solid rgba(36,87,197,.12)}.welcome-option strong{font-size:1.08rem;color:var(--blue)}.welcome-option span{font-weight:500;line-height:1.45}.welcome-option small{color:var(--muted);font-weight:600;line-height:1.35}.toolbar{grid-template-columns:1fr repeat(6,auto)}
+@media(max-width:900px){.toolbar{grid-template-columns:1fr 1fr}.welcome-options{grid-template-columns:1fr}.welcome-option{min-height:auto}}
+@media(max-width:560px){.app{padding:10px}.modal-backdrop{padding:10px}.modal-card{padding:18px}.toolbar{grid-template-columns:1fr}.toolbar>div:first-child{grid-column:auto}.workflow{grid-template-columns:1fr 1fr}.welcome-options{gap:10px}}
+
+.save-reading{background:#0b7a53;color:#fff;transition:background .15s ease,transform .05s ease}.save-reading:hover{background:#096744}.save-reading:active{background:#07553a;transform:translateY(1px)}
+.chart-legend{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin:0 0 12px;color:var(--muted);font-size:.92rem}.chart-legend span{display:inline-flex;align-items:center;gap:7px}.legend-dot{width:11px;height:11px;border-radius:50%;display:inline-block}.legend-sys{background:#c62828}.legend-dia{background:#2457c5}.legend-pulse{background:#067647}.legend-line{width:26px;height:0;border-top:2px dashed #667085;display:inline-block}
+.about-card p{line-height:1.6}.technical-info{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0}.technical-info>div{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fbfcfe}.technical-info span{display:block;color:var(--muted);font-size:.86rem;margin-bottom:4px}.support-box{border:1px solid var(--line);border-radius:14px;padding:16px;background:#f8faff}.support-box h3{margin-top:0}.alias-row{display:flex;justify-content:space-between;align-items:center;gap:14px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px}.alias-row strong{display:block;margin-top:3px}.alias-row button:disabled{cursor:not-allowed;opacity:.55}
+@media(max-width:640px){.technical-info{grid-template-columns:1fr}.alias-row{align-items:stretch;flex-direction:column}.alias-row button{width:100%}.chart-legend{display:grid;grid-template-columns:1fr}.table-wrap{max-width:100%}}
+
+
+/* Ajustes de CardioRegistro V3.1 Estable */
+.positive-action{background:#0b7a53;color:#fff;transition:background .15s ease,transform .05s ease,box-shadow .15s ease}
+.positive-action:hover{background:#096744}
+.positive-action:active{background:#07553a;transform:translateY(1px);box-shadow:inset 0 1px 2px rgba(0,0,0,.18)}
+.positive-action:focus-visible{outline:3px solid rgba(11,122,83,.22);outline-offset:2px}
+#medForm{margin-bottom:16px}
+#estadisticas .section-head{margin-bottom:16px}
+#medicacion .table-wrap{margin-top:4px}
+@media(max-width:640px){#estadisticas .section-head{margin-bottom:14px}}
+
+
+/* CardioRegistro V3.3 Desarrollo 01 — sectorización por cambio de medicación */
+.medication-period-head{align-items:center}.medication-period-intro{border:1px solid #b9c9e8;background:#f7faff;border-radius:12px;padding:12px 14px;margin:8px 0 14px}.medication-period-intro p{margin:5px 0 0;line-height:1.45;color:var(--muted)}
+.period-comparison{border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 14px;background:#fbfcfe}.period-comparison-title{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:12px}.period-comparison-title strong{font-size:1.04rem}.period-comparison-title span{color:var(--muted);font-size:.9rem}.period-blocks{display:grid;grid-template-columns:1fr 1fr;gap:12px}.period-block{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}.period-block.active-period{border-color:#8cb8a3;background:#f7fcf9}.period-block h3{margin:0;font-size:1rem}.period-block>p{margin:4px 0 10px}.period-stats{display:grid;grid-template-columns:repeat(3,minmax(95px,1fr));gap:8px}.period-stats .stat{padding:9px}.period-stats .stat b{font-size:1.12rem}.difference-strip{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:12px;border-radius:10px;padding:10px 12px;background:#eef4ff}.difference-strip>strong{color:#173b8f}.period-note{margin:10px 0 0;color:var(--muted);font-size:.9rem;line-height:1.45}
+.period-divider td{font-weight:800;text-align:center;padding:8px 10px!important;border-top:2px solid #2457c5;border-bottom:2px solid #2457c5;background:#eef4ff;color:#173b8f}.period-divider.end-divider td{border-color:#6f8d7a;background:#eff8f2;color:#365d44}.marked-start td{background:#f8fbff}.marked-end td{background:#f8fcf9}.reading-actions{min-width:330px}.period-action{background:#eaf0ff;color:#173b8f}.period-action:disabled{opacity:.42;cursor:not-allowed}
+@media(max-width:760px){.period-blocks{grid-template-columns:1fr}.period-stats{grid-template-columns:repeat(2,minmax(95px,1fr))}.period-comparison-title{display:block}.period-comparison-title span{display:block;margin-top:3px}.reading-actions{min-width:300px}}
+@media print{.period-comparison{break-inside:avoid}.period-divider td{-webkit-print-color-adjust:exact;print-color-adjust:exact}.period-comparison-title span,.period-note{color:#444}.difference-strip{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+
+/* Ajustes V3.3 Desarrollo 01 */
+.patient-button .patient-name{font-weight:850;font-size:1.05rem;letter-spacing:.01em}
+.patient-button.active .patient-name{font-size:1.08rem}
+.patient-name-input{font-weight:800;font-size:1.05rem}
+.reading-actions-head>div{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:315px}
+#clearMedicationPeriodBtn{white-space:nowrap;background:#eef4ff;color:#173b8f;border:1px solid #b9c9e8}
+#clearMedicationPeriodBtn:hover{background:#e1ebff}
+@media(max-width:760px){.reading-actions-head>div{min-width:285px;align-items:flex-start;flex-direction:column}.reading-actions-head #clearMedicationPeriodBtn{width:auto}}
+
+
+/* CardioRegistro V3.3 Desarrollo 03 — contexto de paciente y ayuda */
+.patient-context{display:inline-block;margin-left:.35rem;font-size:.92em;font-weight:850;color:#173b8f}
+.comparison-patient{font-style:normal;color:#173b8f;font-weight:850}
+.help-card{width:min(760px,100%)}
+.help-card h3{margin:18px 0 5px;color:#173b8f}
+.help-card p{line-height:1.55;margin:6px 0}
+.help-intro{color:var(--muted);margin-top:-4px!important}
+@media(max-width:640px){.patient-context{display:block;margin:.2rem 0 0;font-size:.84em}.help-card h3{margin-top:16px}}
+@media print{.patient-context,.comparison-patient{color:#000!important}}
+
+
+/* V3.3 Desarrollo 07 - hoja adicional de resumen comparativo */
+.print-only{display:none}
+@media print{
+ @page summaryPage{size:A4 landscape;margin:9mm}
+ .print-summary-sheet{display:block!important;page:summaryPage;break-before:page;page-break-before:always;font-size:8.4pt;color:#111}
+ .print-summary-sheet *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .summary-print-head{display:grid;grid-template-columns:1fr 1.5fr .75fr;align-items:center;gap:14px;border-bottom:1px solid #9aa7ba;padding:0 4px 10px;margin-bottom:10px}
+ .summary-print-head>div:first-child strong{display:block;font-size:19pt;color:#173b8f}.summary-print-head>div:first-child span{display:block;color:#555;margin-top:2px}
+ .summary-print-head h2{margin:0;text-align:center;font-size:17pt;color:#173b8f}.summary-print-head p{margin:3px 0 0;text-align:center;color:#555}
+ .summary-print-head>div:last-child{text-align:right}.summary-print-head>div:last-child span{display:block;color:#555}.summary-print-head>div:last-child b{font-size:10pt}
+ .summary-patient-grid{display:grid;grid-template-columns:1fr;gap:10px}
+ .summary-patient{border:1px solid #aeb8c8;border-radius:8px;padding:9px;break-inside:avoid}.summary-patient h3{margin:0 0 6px;color:#173b8f;font-size:13pt}
+ .summary-overall{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:7px}.summary-overall span{border:1px solid #d3dae5;border-radius:6px;padding:5px;background:#f7f9fc;text-align:center}.summary-overall b{display:block;font-size:10pt}
+ .summary-period-table{width:100%;min-width:0;border-collapse:collapse;font-size:7.8pt}.summary-period-table th,.summary-period-table td{border:1px solid #ccd3df;padding:4px;text-align:center}.summary-period-table thead th{background:#eef4ff;color:#173b8f;position:static}.summary-period-name{text-align:left;background:#fbfcfe;font-weight:700}.summary-period-table small{display:block;font-weight:400;color:#555;margin-top:2px}
+ .summary-patient h4{margin:7px 0 3px;color:#173b8f}.summary-deltas{margin:0;padding-left:17px;line-height:1.35}.summary-no-period{margin:0;color:#666;font-style:italic}
+ .summary-print-note{margin-top:10px;border:1px solid #aeb8c8;border-radius:7px;padding:7px 9px;background:#f8faff;line-height:1.35}
+}
+
+
+/* CardioRegistro V3.3 Desarrollo 09 — refinamiento final de interfaz */
+.toolbar{grid-template-columns:1fr repeat(4,auto);align-items:end}
+.toolbar-patient{min-width:0}
+.backup-actions{grid-column:2/-1;display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+.patient-management{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.context-help{display:inline-grid;place-items:center;width:25px;height:25px;min-width:25px;padding:0;border-radius:50%;font-size:.85rem;font-weight:850;vertical-align:middle;margin-left:5px;background:#eef4ff;color:#173b8f;border:1px solid #b9c9e8}
+.context-help:hover{background:#e1ebff}
+.context-help-card{width:min(600px,100%)}
+.context-help-card p{line-height:1.55}
+.record-action-stack{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.record-edit-actions,.period-actions-row{display:flex;gap:6px;flex-wrap:nowrap}
+.reading-actions{min-width:210px}
+.patient-switch.single-patient .patient-button{cursor:default}
+#removePatientBtn:disabled{opacity:.45;cursor:not-allowed}
+@media(max-width:900px){.toolbar{grid-template-columns:1fr 1fr}.toolbar-patient{grid-column:1/-1}.backup-actions{grid-column:1/-1;justify-content:flex-start}}
+@media(max-width:560px){.toolbar{grid-template-columns:1fr}.toolbar-patient,.backup-actions{grid-column:1}.backup-actions{display:grid;grid-template-columns:1fr 1fr}.backup-actions button{width:100%}.patient-management button{flex:1}.record-edit-actions,.period-actions-row{flex-wrap:wrap}}
+@media print{.context-help,.patient-management{display:none!important}}
+
+/* CardioRegistro V3.3 Desarrollo 10 — reorganización del menú principal */
+.toolbar{display:grid;grid-template-columns:minmax(170px,.8fr) auto minmax(430px,1.45fr) auto auto auto auto;gap:16px;align-items:center;margin-bottom:14px}
+.toolbar-group{min-width:0}
+.toolbar-patient{display:flex;flex-direction:column;justify-content:center}
+.toolbar-patient label{margin-bottom:6px}
+.toolbar-main-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 14px}
+.toolbar-action-item{display:flex;align-items:center;gap:6px}
+.toolbar-info-actions{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.toolbar-info-actions button{min-width:145px}
+.toolbar-reset-group{display:flex;justify-content:flex-end}
+.toolbar-reset-group button{white-space:nowrap}
+.toolbar-separator{width:1px;align-self:stretch;background:linear-gradient(to bottom,transparent,#cfd8e6 12%,#cfd8e6 88%,transparent)}
+.toolbar .context-help{margin-left:0}
+@media(max-width:1100px){
+  .toolbar{grid-template-columns:1fr auto 1fr;align-items:start}
+  .toolbar-patient{grid-column:1/2}
+  .toolbar-separator:nth-of-type(1){grid-column:2/3}
+  .toolbar-main-actions{grid-column:3/4;justify-content:flex-start}
+  .toolbar-separator:nth-of-type(2),.toolbar-separator:nth-of-type(3){display:none}
+  .toolbar-info-actions{grid-column:1/2;grid-row:2}
+  .toolbar-reset-group{grid-column:3/4;grid-row:2;justify-content:flex-start}
+}
+@media(max-width:760px){
+  .toolbar{grid-template-columns:1fr;gap:12px}
+  .toolbar-separator{display:none}
+  .toolbar-main-actions,.toolbar-info-actions,.toolbar-reset-group{justify-content:flex-start}
+  .toolbar-info-actions{flex-direction:row;flex-wrap:wrap}
+}
+@media(max-width:560px){
+  .toolbar-main-actions,.toolbar-info-actions{display:grid;grid-template-columns:1fr;justify-content:stretch}
+  .toolbar-action-item{display:grid;grid-template-columns:1fr auto}
+  .toolbar-info-actions button,.toolbar-reset-group button{width:100%}
+}
+
+/* CardioRegistro V3.3 Desarrollo 12 — bloque central en dos niveles */
+.toolbar-main-actions{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;min-width:0}
+.toolbar-main-row{display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;width:100%}
+.toolbar-main-row-top{justify-content:center}
+.toolbar-main-row-top .toolbar-action-item button:first-child{white-space:nowrap;min-width:250px}
+.toolbar-main-row-bottom{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;justify-content:center;align-items:center;max-width:590px}
+.toolbar-main-row-bottom .toolbar-action-item{min-width:0;display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px}
+.toolbar-main-row-bottom .toolbar-action-item button:first-child{width:100%;white-space:nowrap;min-width:228px}
+@media(max-width:1100px){
+  .toolbar-main-actions{align-items:flex-start}
+  .toolbar-main-row{justify-content:flex-start}
+  .toolbar-main-row-bottom{justify-content:flex-start}
+}
+@media(max-width:560px){
+  .toolbar-main-actions{display:grid;grid-template-columns:1fr;gap:10px;width:100%}
+  .toolbar-main-row-top{display:grid;grid-template-columns:1fr;gap:10px;width:100%}
+  .toolbar-main-row-top .toolbar-action-item{display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px}
+  .toolbar-main-row-bottom{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%;max-width:none}
+}
+@media(max-width:420px){
+  .toolbar-main-row-bottom{grid-template-columns:repeat(2,minmax(135px,1fr));gap:8px}
+  .toolbar-main-row-bottom .toolbar-action-item button:first-child{font-size:.93rem;padding:10px 12px}
+}
+
+/* CardioRegistro V3.3 Desarrollo 14 — ajuste conservador del menú principal */
+.toolbar{
+  grid-template-columns:minmax(150px,.72fr) auto minmax(400px,1.18fr) auto auto auto auto;
+  gap:14px;
+}
+.toolbar-info-actions button{min-width:132px}
+.toolbar-reset-group button{min-width:160px}
+.toolbar-main-row-top .toolbar-action-item button:first-child{
+  min-width:230px;
+  white-space:nowrap;
+  padding:10px 14px;
+}
+.toolbar-main-row-bottom{
+  max-width:500px;
+  gap:10px;
+}
+.toolbar-main-row-bottom .toolbar-action-item button:first-child{
+  min-width:188px;
+  white-space:nowrap;
+  padding:10px 12px;
+  font-size:.95rem;
+}
+@media(max-width:1100px){
+  .toolbar{grid-template-columns:1fr auto 1fr;gap:12px}
+}
+@media(max-width:560px){
+  .toolbar-main-row-bottom{grid-template-columns:repeat(2,minmax(0,1fr));max-width:none}
+  .toolbar-main-row-bottom .toolbar-action-item button:first-child{
+    min-width:0;
+    font-size:.92rem;
+    padding:10px 10px;
+  }
+  .toolbar-info-actions button,.toolbar-reset-group button{width:100%}
+}
+
+/* CardioRegistro V3.3 Desarrollo 15 — cierre de grilla y pie integrado */
+@media print{
+  /* La tabla comparativa debe conservar toda la grilla en impresión. */
+  .summary-period-table tbody tr + tr th,
+  .summary-period-table tbody tr + tr td{border-top:1px solid #ccd3df!important}
+  .summary-period-table tbody tr:last-child th,
+  .summary-period-table tbody tr:last-child td{border-bottom:1px solid #ccd3df!important}
+
+  /* Evita que el pie general salte a una página propia. */
+  .app>footer{display:none!important}
+  .summary-print-footer{
+    margin-top:14px;
+    padding-top:9px;
+    border-top:1px solid #c8d1df;
+    text-align:center;
+    color:#444;
+    font-size:8.2pt;
+    line-height:1.4;
+  }
+}
+
+@media print{
+  .summary-period-name{border-left:1px solid #ccd3df!important;border-right:1px solid #ccd3df!important}
+  .summary-period-table tbody td{border-color:#ccd3df!important}
+}
