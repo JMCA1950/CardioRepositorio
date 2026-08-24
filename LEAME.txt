@@ -107,3 +107,29 @@ V3.3 Estable:
 - Base funcional: Desarrollo 17, previamente probada.
 - Ajuste final: mayor contraste de la línea divisoria entre períodos en la hoja de resumen impreso/PDF.
 - No se modificó la clave de almacenamiento local para preservar continuidad de los datos existentes al actualizar sobre el mismo origen.
+
+PWA — PRUEBA 01
+----------------
+Objetivo: hacer instalable CardioRegistro desde la misma URL de GitHub Pages, sin servicios de pago y preservando los datos locales existentes.
+
+Archivos agregados:
+- manifest.webmanifest
+- service-worker.js
+- icons/icon-192.png
+- icons/icon-512.png
+
+Ajustes mínimos en index.html:
+- vínculo al manifiesto PWA y metadatos de instalación.
+- registro del Service Worker al cargar la aplicación.
+
+Continuidad de datos:
+- NO se modificó STORAGE_KEY ('cardioRegistro_v33_dev09').
+- La PWA utiliza el mismo origen y la misma ruta pública, por lo que las mediciones ya guardadas en ese navegador continúan disponibles.
+- El Service Worker guarda únicamente archivos estáticos de la aplicación para permitir apertura sin conexión. No copia ni transmite las mediciones del usuario.
+
+Actualizaciones:
+- La estrategia es "red primero": con conexión, CardioRegistro intenta utilizar la versión publicada más reciente; sin conexión, usa la copia local de la aplicación.
+
+Publicación de prueba:
+- Para conservar la URL pública actual, estos archivos deben quedar en la raíz del mismo repositorio de GitHub Pages, reemplazando sólo las versiones correspondientes y agregando los nuevos archivos PWA.
+- Antes de publicar en el repositorio público, probar esta carpeta en un entorno de desarrollo y conservar intacta la V3.3 Estable maestra.
