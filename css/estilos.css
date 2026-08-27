@@ -222,3 +222,91 @@ canvas{display:block;width:100%;height:320px;border:1px solid var(--line);border
   .summary-period-name{border-left:1px solid #ccd3df!important;border-right:1px solid #ccd3df!important}
   .summary-period-table tbody td{border-color:#ccd3df!important}
 }
+
+/* CardioRegistro V3.3 PWA — Prueba móvil 01
+   Corrección específica del menú principal en pantallas angostas.
+   No modifica lógica, datos ni funciones de la aplicación. */
+@media(max-width:760px){
+  .toolbar{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    gap:12px;
+    align-items:stretch;
+    width:100%;
+  }
+
+  .toolbar-patient,
+  .toolbar-main-actions,
+  .toolbar-info-actions,
+  .toolbar-reset-group{
+    grid-column:1!important;
+    grid-row:auto!important;
+    width:100%;
+    min-width:0;
+  }
+
+  .toolbar-separator{display:none!important}
+
+  .patient-switch{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:8px;
+    width:100%;
+  }
+  .patient-switch .patient-button{width:100%;min-width:0}
+
+  .toolbar-main-actions{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+    align-items:stretch;
+    justify-content:stretch;
+  }
+  .toolbar-main-row,
+  .toolbar-main-row-top,
+  .toolbar-main-row-bottom{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+    width:100%;
+    max-width:none;
+    justify-content:stretch;
+  }
+  .toolbar-action-item,
+  .toolbar-main-row-top .toolbar-action-item,
+  .toolbar-main-row-bottom .toolbar-action-item{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:7px;
+    align-items:center;
+    width:100%;
+    min-width:0;
+  }
+  .toolbar-main-row-top .toolbar-action-item button:first-child,
+  .toolbar-main-row-bottom .toolbar-action-item button:first-child{
+    width:100%;
+    min-width:0;
+    max-width:none;
+    white-space:normal;
+    padding:11px 12px;
+    font-size:.96rem;
+  }
+
+  .toolbar-info-actions{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+  .toolbar-info-actions button,
+  .toolbar-reset-group button{
+    width:100%;
+    min-width:0;
+    white-space:normal;
+  }
+  .toolbar-reset-group{display:block}
+}
+
+@media(max-width:420px){
+  .patient-switch{grid-template-columns:1fr}
+  .toolbar-main-row-bottom{grid-template-columns:1fr}
+}
