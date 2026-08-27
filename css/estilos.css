@@ -223,7 +223,7 @@ canvas{display:block;width:100%;height:320px;border:1px solid var(--line);border
   .summary-period-table tbody td{border-color:#ccd3df!important}
 }
 
-/* CardioRegistro V3.3 PWA — Prueba móvil 01
+/* CardioRegistro V3.3 PWA — Prueba móvil 02
    Corrección específica del menú principal en pantallas angostas.
    No modifica lógica, datos ni funciones de la aplicación. */
 @media(max-width:760px){
