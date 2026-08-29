@@ -2,7 +2,7 @@
 
 // Solo se cachean los archivos de la aplicación. Los datos médicos del usuario
 // continúan guardándose en localStorage y no se copian al Service Worker.
-const CACHE_NAME = 'cardioregistro-v33-pwa-mobile-04';
+const CACHE_NAME = 'cardioregistro-v33-pwa-mobile-05';
 const APP_SHELL = [
   './',
   './index.html',
